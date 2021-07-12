@@ -1,0 +1,63 @@
+package tests;
+
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import pageObjects.HomePageObjects;
+import pageObjects.LoginPageObjects;
+import testUtils.Base;
+
+public class LoginPageTest extends Base{
+	
+	@BeforeTest
+	public void lauchBrowser()
+	{
+		driver = initializeDriver();
+	}
+	
+	@Test
+	public void validateLoginPage()
+	{
+		HomePageObjects hpo = new HomePageObjects(driver);
+		hpo.getLogin().click();
+		
+		
+		LoginPageObjects lpo = new LoginPageObjects(driver);
+		lpo.getEmail().sendKeys("dhananjaypandey06@gmail.com");
+		lpo.getPassword().sendKeys("helloworld");
+		lpo.getLogin().click();
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	@DataProvider
+	public void getData()
+	{
+		Object[][] data = new Object[1][1];
+		data[0][0] = "dhananjaypandey06@gmail.com";
+		data[0][1] = "helloworld";
+		
+		data[1][0] = "asswhole@gmail.com";
+		data[1][1] = "helloworld";
+		
+		return data;
+
+	
+	}
+	@AfterTest
+	public void closeBrowser()
+	{
+		driver.close();
+	}
+
+
+}

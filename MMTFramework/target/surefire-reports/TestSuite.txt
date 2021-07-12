@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 30.301 s <<< FAILURE! - in TestSuite
+homePageValidation(tests.HomePageTest)  Time elapsed: 0.646 s  <<< FAILURE!
+java.lang.AssertionError: expected [FEATURED COURSE] but found [FEATURED COURSES]
+	at tests.HomePageTest.homePageValidation(HomePageTest.java:33)
+

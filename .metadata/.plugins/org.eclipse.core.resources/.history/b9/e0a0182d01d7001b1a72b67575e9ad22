@@ -1,0 +1,39 @@
+package pageObjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class LoginPageObjects {
+	
+	WebDriver driver;
+	By txtEmail = By.xpath("//input[id='user_email']");
+	By txtPassword = By.xpath("//input[id='user_password']");
+	By btnLogin = By.xpath("//input[name='commit']");
+	
+	
+	public LoginPageObjects(WebDriver driver)
+	{
+		this.driver = driver;
+		
+	}
+	
+	public WebElement getEmail()
+	{
+		return driver.findElement(txtEmail);
+	}
+	
+	public WebElement getPassword()
+	{
+		return driver.findElement(txtPassword);
+		
+	}
+	
+	public WebElement getLogin()
+	{
+		return driver.findElement(btnLogin);
+	}
+	
+	
+
+}

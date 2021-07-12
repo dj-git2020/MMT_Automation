@@ -1,0 +1,14 @@
+package pageObjects;
+
+import org.openqa.selenium.WebDriver;
+
+public class LoginPageObjects {
+	
+	WebDriver driver;
+	public LoginPageObjects(WebDriver driver)
+	{
+		this.driver = driver;
+		
+	}
+
+}

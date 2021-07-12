@@ -1,0 +1,12 @@
+package testUtils;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+ 
+public class ReExecute {
+ 
+  @Test(retryAnalyzer = ReExecuteListener.class)
+  public void test2() {
+    Assert.fail();
+  }
+}

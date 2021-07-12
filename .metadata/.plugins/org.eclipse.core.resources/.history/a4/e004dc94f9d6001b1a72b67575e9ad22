@@ -1,0 +1,16 @@
+package testPages;
+
+import org.testng.annotations.Test;
+
+import testUtils.Base;
+
+public class HomePage extends Base{
+	
+	@Test
+	public void homePageValidation()
+	{
+		driver = initializeDriver();
+		System.out.println(driver.getTitle());
+	}
+
+}

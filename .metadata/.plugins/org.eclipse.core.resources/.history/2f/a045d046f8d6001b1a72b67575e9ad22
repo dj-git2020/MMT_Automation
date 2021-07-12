@@ -1,0 +1,12 @@
+package testPages;
+
+import testUtils.Base;
+
+public class HomePage extends Base{
+	
+	public void homePageValidation()
+	{
+		
+	}
+
+}

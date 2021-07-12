@@ -1,0 +1,46 @@
+package tests;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import constants.Constants;
+import pageObjects.HomePageObjects;
+import testUtils.Base;
+
+public class HomePageTest extends Base{
+
+	public static Logger log = LogManager.getLogger(Base.class.getName());
+	@BeforeTest
+	public void setUp()
+	{
+		driver = initializeDriver();
+		log.info("Driver initialized...");
+	}
+	
+	@Test
+	public void homePageValidation()
+	{
+	
+		HomePageObjects hpo = new HomePageObjects(driver);
+		Assert.assertEquals(hpo.getFeatureLogo().getText(), Constants.FEATURED_COURSES);
+		
+		Assert.assertTrue(hpo.getHomeLink().isDisplayed());
+		
+		log.info("Home page menu validation completed....");
+		//hpo.getLogin().click();
+		
+		
+	}
+	
+	@AfterTest
+	public void tearDown()
+	{
+		driver.close();
+		log.info("Driver closed...");
+	}
+
+}

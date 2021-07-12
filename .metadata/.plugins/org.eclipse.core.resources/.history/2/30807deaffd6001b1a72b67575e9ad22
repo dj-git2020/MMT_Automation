@@ -1,0 +1,29 @@
+package tests;
+
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import testUtils.Base;
+
+public class LoginPageTest extends Base{
+	
+	@BeforeTest
+	public void lauchBrowser()
+	{
+		driver = initializeDriver();
+	}
+	
+	@test
+	public void validateLoginPage()
+	{
+		
+	}
+	
+	@AfterTest
+	public void closeBrowser()
+	{
+		driver.close();
+	}
+
+
+}

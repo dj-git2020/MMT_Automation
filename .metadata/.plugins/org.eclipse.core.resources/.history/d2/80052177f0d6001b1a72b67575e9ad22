@@ -1,0 +1,53 @@
+package testUtils;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import constants.Constants;
+
+public class Base {
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			Properties prop;
+			String browserName="";
+			WebDriver  driver;
+			
+			
+			prop = new Properties();
+			try {
+				FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + Constants.GLOBAL_PROPERTIES_FILE);
+				prop.load(fis);
+				browserName = prop.getProperty("browser");	
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			if(browserName.equalsIgnoreCase("chrome"))
+			{
+				System.setProperty(Constants.CHROME_DRIVER, Constants.GLOBAL_DATA_FOLDER + "chromedriver.exe");
+				driver = new ChromeDriver();
+				
+			}
+			else if(browserName.equalsIgnoreCase("firefox"))
+			{
+				
+			}else if(browserName.equalsIgnoreCase("IE"))
+			{
+				
+			}
+			driver.get(prop.getProperty("URL"));
+			
+	}
+
+}
